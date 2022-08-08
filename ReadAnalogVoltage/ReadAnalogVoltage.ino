@@ -13,6 +13,8 @@
 // Global Variables
 int ADVoltage = 3300; // in mVolt
 int ADResolution = 12; // in Bit
+#define VoltageChannel A0;
+#define CurrentChannel A1;
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -23,10 +25,13 @@ void setup() {
 // the loop routine runs over and over again forever:
 void loop() {
   // read the input on analog pin 0:
-  int sensorValue = analogRead(A0);
+  int sensorVoltage = analogRead(VoltageChannel);
+  int sensorCurrent = analogRead(CurrentChannel);
   // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   //float voltage = sensorValue * (ADVoltage /(2^ADResolution));
-  float voltage = sensorValue * 0.8;
+  float voltage = sensorVoltage * 0.8;
+  float current = sensorCurrent *0.8;
   // print out the value you read:
+  Serial.print(current);
   Serial.println(voltage);
 }
