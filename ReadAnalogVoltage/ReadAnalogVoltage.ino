@@ -10,6 +10,9 @@
   http://www.arduino.cc/en/Tutorial/ReadAnalogVoltage
 */
 
+// Include Libraries
+
+
 // Global Variables
 int ADVoltage = 3300; // in mVolt
 int ADResolution = 12; // in Bit
@@ -44,6 +47,10 @@ void dataLogger(){
 void loop() {
   // Log the data
   dataLogger();
+
+  struct timeval tv_now;
+  gettimeofday(&tv_now, NULL);
+  int64_t time_us = (int64_t)tv_now.tv_sec * 1000000L + (int64_t)tv_now.tv_usec;
 
   // print out the value you read:
   Serial.print("Current: ");
