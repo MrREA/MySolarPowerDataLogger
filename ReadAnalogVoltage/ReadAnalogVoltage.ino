@@ -10,8 +10,6 @@
   http://www.arduino.cc/en/Tutorial/ReadAnalogVoltage
 */
 
-// Include Libraries
-
 
 // Global Variables
 int ADVoltage = 3300; // in mVolt
